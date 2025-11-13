@@ -1,0 +1,10 @@
+<mvc:View controllerName="printerne.controller.Fournisseur"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="fournisseur" title="Espace Fournisseur" class="sapUiContentPadding">
+        <content>
+            <Title text="Bienvenue Fournisseur" level="H2" class="sapUiMediumMarginBottom"/>
+            <Text text="Ici vous pouvez gérer vos commandes et livraisons."/>
+        </content>
+    </Page>
+</mvc:View>

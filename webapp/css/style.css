@@ -1,0 +1,32 @@
+/* Enter your custom styles here */
+.auth-container {
+    width: 400px;
+    margin: auto;
+    margin-top: 10%;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 2px solid #007bff; /* Bleu SAP */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-button {
+    background-color: #007bff !important; /* Bleu uniforme */
+    color: #fff !important;
+    font-weight: bold;
+    margin: 15px 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #0056b3 !important; /* Bleu plus foncé au hover */
+}
+
+.table-title {
+    display: inline-block;
+    max-width: 300px; /* Limite la largeur */
+    text-align: center;
+    font-weight: bold;
+}

@@ -1,0 +1,117 @@
+<mvc:View controllerName="printerne.controller.PR_View"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" class="sapUiContentPadding">
+        <content>
+            <!-- Barre de recherche + Bouton Créer pour les entêtes -->
+            <Toolbar class="sapUiMediumMarginBottom">
+                <SearchField width="50%" placeholder="Rechercher entêtes..." liveChange="onSearchHeader"/>
+                <ToolbarSpacer/>
+                <Button text="Créer Réquisition" type="Emphasized" press="onCreateHeader" icon="sap-icon://add"/>
+            </Toolbar>
+
+            <!-- Section des entêtes -->
+            <ObjectHeader title="Purchase Requisition" number="{/PurchaseReqHeader.length}" class="sapUiMediumMarginBottom"/>
+
+            <!-- Table des entêtes -->
+            <Table id="headerTable" items="{path: '/PurchaseReqHeader', length: 10}" growing="true" growingScrollToLoad="true" inset="false">
+                <headerToolbar>
+                    <Toolbar>
+                        <ToolbarSpacer/>
+                        <Title text="Liste des entêtes (max 10)" level="H2" class="table-title"/>
+                        <ToolbarSpacer/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column><Text text="Date de modification"/></Column>
+                    <Column><Text text="Réquisition"/></Column>
+                    <Column><Text text="Description"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" press="onHeaderSelect" highlight="Information">
+                        <cells>
+                            <Text text="{LastChangeDateTime}"/>
+                            <Text text="{PurchaseRequisition}"/>
+                            <Text text="{PurReqnDescription}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <!-- Section des items -->
+            <ObjectHeader title="Items List" class="sapUiMediumMarginTop"/>
+
+            <!-- Barre de recherche + Bouton Créer pour les items -->
+            <Toolbar class="sapUiMediumMarginBottom">
+                <SearchField width="50%" placeholder="Rechercher items..." liveChange="onSearchItem"/>
+                <ToolbarSpacer/>
+                <Button text="Créer Item" type="Emphasized" press="onCreateItem" icon="sap-icon://add"/>
+            </Toolbar>
+
+            <!-- Table des items -->
+            <Table id="itemTable" items="{path: '/PurchaseReqItem', length: 10}" growing="true" growingScrollToLoad="true" inset="false">
+                <headerToolbar>
+                    <Toolbar>
+                        <ToolbarSpacer/>
+                        <Title text="Items pour l'entête sélectionné (max 10)" level="H2" class="table-title"/>
+                        <ToolbarSpacer/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column><Text text="Réquisition"/></Column>
+                    <Column><Text text="Plant"/></Column>
+                    <Column><Text text="Matériel"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{PurchaseRequisition}"/>
+                            <Text text="{Plant}"/>
+                            <Text text="{Material}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+
+    <!-- Dialog pour création Réquisition -->
+    <Dialog id="createDialogHeader" title="Créer une Purchase Requisition" class="sapUiContentPadding">
+        <VBox class="sapUiSmallMargin">
+            <Label text="Nom de la réquisition"/>
+            <Input id="nameInput" placeholder="Entrez le nom de la réquisition"/>
+
+            <Label text="Description"/>
+            <Input id="descInput" placeholder="Entrez la description"/>
+
+            <Label text="Date de modification"/>
+            <DatePicker id="dateInput"/>
+        </VBox>
+        <beginButton>
+            <Button text="Enregistrer" type="Emphasized" press="onSaveHeader"/>
+        </beginButton>
+        <endButton>
+            <Button text="Annuler" press="onCancelHeader"/>
+        </endButton>
+    </Dialog>
+
+    <!-- Dialog pour création Item -->
+    <Dialog id="createDialogItem" title="Créer un Item" class="sapUiContentPadding">
+        <VBox class="sapUiSmallMargin">
+            <Label text="Réquisition"/>
+            <Input id="itemReqInput" placeholder="Entrez la réquisition"/>
+
+            <Label text="Plant"/>
+            <Input id="itemPlantInput" placeholder="Entrez le plant"/>
+
+            <Label text="Matériel"/>
+            <Input id="itemMaterialInput" placeholder="Entrez le matériel"/>
+        </VBox>
+        <beginButton>
+            <Button text="Enregistrer" type="Emphasized" press="onSaveItem"/>
+        </beginButton>
+        <endButton>
+            <Button text="Annuler" press="onCancelItem"/>
+        </endButton>
+    </Dialog>
+</mvc:View>

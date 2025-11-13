@@ -1,0 +1,17 @@
+<mvc:View controllerName="printerne.controller.Auth"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="authPage" title="Authentification" class="sapUiContentPadding">
+        <content>
+            <VBox class="auth-container" justifyContent="Center" alignItems="Center">
+                <Title text="Bienvenue" level="H1" class="sapUiMediumMarginBottom"/>
+                <Text text="Choisissez votre espace :" class="sapUiSmallMarginBottom"/>
+
+                <!-- Boutons uniformes -->
+                <Button text="Espace Client" type="Emphasized" width="250px" press="onClientPress" class="auth-button"/>
+                <Button text="Espace Fournisseur" type="Emphasized" width="250px" press="onFournisseurPress" class="auth-button"/>
+                <Button text="Espace Admin" type="Emphasized" width="250px" press="onAdminPress" class="auth-button"/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
