@@ -1,0 +1,10 @@
+<mvc:View controllerName="printerne.controller.Administrator"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="administrator" class="sapUiContentPadding">
+        <content>
+            <Title text="Bienvenue Fournisseur" level="H2" class="sapUiMediumMarginBottom"/>
+            <Text text="Ici vous pouvez gérer vos commandes et livraisons."/>
+        </content>
+    </Page>
+</mvc:View>

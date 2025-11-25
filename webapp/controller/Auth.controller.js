@@ -1,21 +1,36 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller"
-], function(Controller) {
+], function (Controller) {
     "use strict";
 
     return Controller.extend("printerne.controller.Auth", {
-        onClientPress: function() {
-            // Redirection vers PR_View
-            sap.ui.core.UIComponent.getRouterFor(this).navTo("PRView");
-        },
 
-        onFournisseurPress: function() {
-            // Redirection vers la nouvelle vue Fournisseur
-            sap.ui.core.UIComponent.getRouterFor(this).navTo("FournisseurView");
-        },
+        onLoginPress: function () {
+            var oModel = this.getOwnerComponent().getModel("authModel");
+            var sUserId = this.byId("inputUser").getValue();
+            var sPassword = this.byId("inputPassword").getValue();
 
-        onAdminPress: function() {
-            sap.m.MessageToast.show("Espace Admin (à implémenter)");
+            oModel.bindAction({
+                path: "/ZI_BUSINESSPARTNER('" + sUserId + "')/SAP__self.authenticate",
+                parameters: {
+                    userid: sUserId,
+                    password: sPassword
+                }
+            }).execute().then(function (oData) {
+                if (oData.isAuthenticated === "X") {
+                    if (oData.redirecturl === "/customer/home") {
+                        this.getOwnerComponent().getRouter().navTo("PRView");
+                    } else if (oData.redirecturl === "/supplier/home") {
+                        this.getOwnerComponent().getRouter().navTo("FournisseurView");
+                    } else {
+                        this.getOwnerComponent().getRouter().navTo("AdministratorView");
+                    }
+                } else {
+                    sap.m.MessageToast.show(oData.message);
+                }
+            }.bind(this));
         }
+
+
     });
 });

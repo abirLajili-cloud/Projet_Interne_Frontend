@@ -30,3 +30,61 @@
     text-align: center;
     font-weight: bold;
 }
+.blueTitle {
+    color: #0070f2; /* Bleu SAP Fiori */
+    font-weight: bold;
+}
+
+.customTable .sapMListTblHeaderCell {
+    background-color: #f4f4f4; /* Gris clair pour l'en-tête */
+    border-bottom: 2px solid #0070f2;
+}
+
+.customTable .sapMListTblCell {
+    padding: 0.75rem;
+}
+.blueTitle {
+    color: #0070f2;
+    font-weight: bold;
+}
+
+.labelHighlight {
+    color: #0070f2;
+    font-weight: bold;
+}
+
+.inputHighlight {
+    border: 2px solid #0070f2;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+
+.actionButton {
+    margin-right: 20px; /* Espacement entre les boutons */
+    height: 50px;       /* Hauteur augmentée */
+    width: 220px;       /* Largeur fixe */
+    font-size: 1.1rem;  /* Texte plus grand */
+    background-color: #007bff !important;
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.actionButton:hover {
+    background-color: #0056b3 !important;
+}
+
+.statusApproved {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.customTable .sapMListTblHeaderCell {
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #0070f2;
+}
+
+.customTable .sapMListTblRow:hover {
+    background-color: #e6f0ff;
+}

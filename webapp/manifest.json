@@ -24,6 +24,15 @@
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "4.0"
         }
+      },
+      "authService": {
+        "uri": "/sap/opu/odata4/sap/zsb_bp/srvd/sap/zsd_businesspartner/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/authService/metadata.xml",
+          "odataVersion": "4.0"
+        }
       }
     }
   },
@@ -71,6 +80,14 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "authModel": {
+        "dataSource": "authService",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "odataVersion": "4.0"
+        }
       }
     },
     "resources": {
@@ -112,6 +129,13 @@
           "target": [
             "FournisseurView"
           ]
+        },
+        {
+          "name": "AdministratorView",
+          "pattern": "Administrator",
+          "target": [
+            "AdministratorView"
+          ]
         }
       ],
       "targets": {
@@ -129,6 +153,11 @@
           "viewName": "Fournisseur",
           "viewLevel": 2,
           "id": "Fournisseur"
+        },
+        "AdministratorView": {
+          "viewName": "Administrator",
+          "viewLevel": 2,
+          "id": "Administrator"
         }
       }
     },
